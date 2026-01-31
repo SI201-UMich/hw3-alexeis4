@@ -165,8 +165,8 @@ def main():
         "25% off",
     ]
 
-    CDispender = CouponDispenser(coupon_cards)
-    self.distribute_session()
+    CDispenser = CouponDispenser(coupon_cards)
+    CDispenser.distribute_session()
 
 
 
