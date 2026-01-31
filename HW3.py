@@ -160,11 +160,22 @@ def main():
         "Free small coffee",
         "Buy 1 get 1 half off",
         "Free extra espresso shot",
+        "Free mocha",
+        "Buy 5 the 6th is free",
+        "25% off",
     ]
 
+    CDispender = CouponDispenser(coupon_cards)
+    self.distribute_session()
+
+
+
+
+
+
     # Uncomment the lines below as you implement each function.
-    # box = CouponDispenser(coupon_cards)
-    # box.distribute_session()
+    box = CouponDispenser(coupon_cards)
+    box.distribute_session()
     # box.tally_distribution()
     pass
 
@@ -446,5 +457,5 @@ def test():
 
 if __name__ == "__main__":
     main()
-    # test()
+    test()
 
