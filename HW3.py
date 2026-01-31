@@ -47,7 +47,14 @@ class CouponDispenser:
             str
         """
         # TODO: Implement per instructions
-        return f""
+        selfstr = ""
+        try:
+            for i in self.coupon_cards:
+                selfstr += self.coupon_cards[i]
+                selfstr += "|"
+        except:
+            return ""
+        
 
     def issue_coupon(self, name):
         """
