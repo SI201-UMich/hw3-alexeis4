@@ -1,12 +1,11 @@
 # Name: Alexei Sanoff
 # Student ID: alexeis
 # Email: alexeis@umich.edu
-# Who or what you worked with on this homework (including generative AI like ChatGPT):
+# Who or what you worked with on this homework (including generative AI like ChatGPT): My buddy Willman, the google chrome summarization AI
 # If you worked with generative AI also add a statement for how you used it.
-# e.g.:
-# Asked ChatGPT hints for debugging and suggesting the general structure of the code
+# I briefly glanced at the automatically generated summaries of various search queries I made about how to 
 # Did your use of GenAI on this assignment align with your goals and guidelines in 
-#    your Gen AI contract? If not, why?
+#    your Gen AI contract? If not, why? Yes, it did. I only really glanced at it, and it simply helped refresh my memory of concepts I had learned and remembered imperfectly.
 
 import random
 import io
@@ -35,8 +34,8 @@ class CouponDispenser:
         # TODO: Implement per instructions
 
         self.coupon_cards = coupon_cards
-        customer_roster = []
-        issued_indices = []
+        self.customer_roster = []
+        self.issued_indices = []
 
     def __str__(self):
         """
@@ -80,9 +79,9 @@ class CouponDispenser:
             if self.customer_roster[i] == self.name:
                 nameindex = i
         if not nameindex == -1:
-            return f"That name already has a coupon: {self.coupon_cards[nameindex]}"
+            return f"That name already has a coupon: {self.issued_indices[nameindex]}"
         else:
-            couponint = random.randint(0,len(self.coupon_cards))
+            couponint = random.randint(0,(len(self.coupon_cards) -1))
             self.customer_roster.append(self.name)
             self.issued_indices.append(self.coupon_cards[couponint])
             return self.coupon_cards[couponint]
@@ -120,11 +119,11 @@ class CouponDispenser:
                 pieces = user_input.split(",")
                 stripped_text = []
                 for i in pieces:
-                    a_stripped_text = pieces[i].strip()
+                    a_stripped_text = i.strip()
                     if not a_stripped_text == "":
                         stripped_text  += a_stripped_text
                 for i in stripped_text:
-                    self.issue_coupon(stripped_text[i])
+                    self.issue_coupon(i)
 
 
 
