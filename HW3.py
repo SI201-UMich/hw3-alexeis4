@@ -71,44 +71,45 @@ class CouponDispenser:
             str: message as described above
         """
         # TODO: Implement per instructions
-        self.name = name
+        # self.name = name
         if len(self.coupon_cards) == 0:
             return "The box is empty."
         nameindex = -1
         for i in range(len(self.customer_roster)):
-            if self.customer_roster[i] == self.name:
+            if self.customer_roster[i] == name:
                 nameindex = i
         if not nameindex == -1:
             return f"That name already has a coupon: {self.issued_indices[nameindex]}"
         else:
             couponint = random.randint(0,(len(self.coupon_cards) -1))
-            self.customer_roster.append(self.name)
+            self.customer_roster.append(name)
             self.issued_indices.append(self.coupon_cards[couponint])
             return self.coupon_cards[couponint]
 
 
 
 
+
     def distribute_session(self):
-        """
-        Run the "coupon dispenser" session.
+        # """
+        # Run the "coupon dispenser" session.
 
-        The program will loop asking you to enter a customer name (or names), show, or exit.  
-        - If you type exit (exact spelling) the program will print "Goodbye!" and stop.  
-        - If you enter one or more customer names (separated by commas).
-           * A coupon will be picked at random from a list of coupons for each name 
-           if that name doesn't already have an assigned coupon. 
-        - If you type show (exact spelling) it will display a string with each customer's name and coupon.
+        # The program will loop asking you to enter a customer name (or names), show, or exit.  
+        # - If you type exit (exact spelling) the program will print "Goodbye!" and stop.  
+        # - If you enter one or more customer names (separated by commas).
+        #    * A coupon will be picked at random from a list of coupons for each name 
+        #    if that name doesn't already have an assigned coupon. 
+        # - If you type show (exact spelling) it will display a string with each customer's name and coupon.
 
-        See the instructions for more details.
+        # See the instructions for more details.
 
-        Reminder: Use lists only (no dictionaries).
-        """
+        # Reminder: Use lists only (no dictionaries).
+        # """
         # TODO: Implement per instructions 
         round_number = 1
         running = True
         while running == True:
-            user_input = f"Round {round_number} - Enter a name (or a comma-separated list), or type 'show' or 'exit': "
+            user_input = input(f"Round {round_number} - Enter a name (or a comma-separated list), or type 'show' or 'exit': ")
             if user_input == 'exit':
                 print("Goodbye!")
                 break 
@@ -164,19 +165,11 @@ def main():
         "25% off",
     ]
 
-    CDispenser = CouponDispenser(coupon_cards)
-    CDispenser.distribute_session()
-
-
-
-
-
-
     # Uncomment the lines below as you implement each function.
     box = CouponDispenser(coupon_cards)
     box.distribute_session()
     # box.tally_distribution()
-    pass
+    
 
 
 # -----------------------
@@ -456,5 +449,5 @@ def test():
 
 if __name__ == "__main__":
     main()
-    test()
+    # test()
 
