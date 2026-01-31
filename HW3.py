@@ -119,10 +119,13 @@ class CouponDispenser:
             else:
                 pieces = user_input.split(",")
                 stripped_text = []
+                print(f"pieces: {pieces}")
                 for i in pieces:
                     a_stripped_text = i.strip()
+                    print(f"a_stripped_text: {a_stripped_text}")
                     if not a_stripped_text == "":
                         stripped_text  += a_stripped_text
+                print(f"stripped_text = {stripped_text}")
                 for i in stripped_text:
                     self.issue_coupon(i)
 
