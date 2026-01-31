@@ -111,11 +111,11 @@ class CouponDispenser:
                 print("Goodbye!")
                 break 
 
-            if user_input == "show":
+            elif user_input == "show":
                 for i in range(len(self.customer_roster)):
                     print(f"{self.customer_roster[i]}: {self.issued_indices[i]}")
 
-            if len(self.coupon_cards) == 0:
+            elif len(self.coupon_cards) == 0:
                 print("The box is empty.")
             
             else:
