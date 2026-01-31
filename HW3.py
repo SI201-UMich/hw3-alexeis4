@@ -71,7 +71,6 @@ class CouponDispenser:
             str: message as described above
         """
         # TODO: Implement per instructions
-        # self.name = name
         if len(self.coupon_cards) == 0:
             return "The box is empty."
         nameindex = -1
@@ -79,11 +78,10 @@ class CouponDispenser:
             if self.customer_roster[i] == name:
                 nameindex = i
                 return f"That name already has a coupon: {self.issued_indices[nameindex]}"
-        else:
-            couponint = random.randint(0,(len(self.coupon_cards) -1))
-            self.customer_roster.append(name)
-            self.issued_indices.append(self.coupon_cards[couponint])
-            return self.coupon_cards[couponint]
+        couponint = random.randint(0,(len(self.coupon_cards) -1))
+        self.customer_roster.append(name)
+        self.issued_indices.append(self.coupon_cards[couponint])
+        return self.coupon_cards[couponint]
 
 
 
@@ -116,6 +114,9 @@ class CouponDispenser:
             if user_input == "show":
                 for i in range(len(self.customer_roster)):
                     print(f"{self.customer_roster[i]}: {self.issued_indices[i]}")
+
+            if len(self.coupon_cards) == 0:
+                print("The box is empty.")
             
             else:
                 pieces = user_input.split(",")
@@ -125,7 +126,7 @@ class CouponDispenser:
                     if not a_stripped_text == "":
                         stripped_text.append(a_stripped_text)
                 for i in stripped_text:
-                    self.issue_coupon(i)
+                    print(self.issue_coupon(i))
             round_number += 1
 
 
